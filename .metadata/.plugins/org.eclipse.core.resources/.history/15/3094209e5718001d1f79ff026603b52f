@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index.html</title>
+</head>
+<body>
+	<h1>인덱스 페이지입니다.</h1>
+	<p>
+		김구라 이미지를 보고 싶으면 주소창에 <br>
+		http://localhost:8888/Hello/images/kim1.png <br>
+		를 입력해 보세요 ^^
+	</p>
+	<img alt="" src="http://localhost:8888/Hello/images/kim1.png">
+</body>
+</html>
