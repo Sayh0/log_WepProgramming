@@ -1,0 +1,23 @@
+<%@page import ="java.util.Random" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!-- 자바 작성 영역 시작(소스 파일 보기로는 안 보임). -->
+<%
+//오늘의 운세 5개를 배열로 만들어 보는 법
+String[] list = {"기대하던 일 큰 성과 보겠다.", "현실에 감사하는 마음을 가져라.", 
+    "새로운 길이 열린다.", "서쪽으로 가면 귀인을 만난다.", "때를 잘 활용하라."};
+//0~4 사이의 랜덤한 정수를 얻어내기
+int ranNum1=new Random().nextInt(5);
+%>
+<!-- 자바 작성 영역 끝(소스 파일 보기로는 안 보임). -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>/fortune.jsp</title>
+</head>
+<body>
+	<p>오늘의 운세2</p>
+</body>
+</html>

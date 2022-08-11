@@ -1,7 +1,0 @@
-package test.servlet;
-
-import javax.servlet.http.HttpServlet;
-
-public class sendServlet extends HttpServlet {
-
-}

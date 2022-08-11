@@ -54,6 +54,7 @@ public class SendServlet extends HttpServlet {//1. HttpServlet 클래스를 상�
 //		pw.println("프린트 테스트3");
 		pw.flush(); // 방출
 		pw.close(); // 닫아주기.
+		//사실 close 하는 시점에서 자동 flush 가 작동하기 때문에 flush는 따로 안 써줘도 됨.
 		
 		//새로운 servlet이 추가가 되면 껐다 켜야 적용이 된다.
 	}

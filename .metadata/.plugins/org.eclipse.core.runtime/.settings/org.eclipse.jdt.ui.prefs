@@ -5,6 +5,7 @@ eclipse.preferences.version=1
 org.eclipse.jdt.internal.ui.navigator.layout=2
 org.eclipse.jdt.internal.ui.navigator.librariesnode=true
 org.eclipse.jdt.ui.formatterprofiles.version=22
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="java" deleted\="false" description\="html \uD15C\uD50C\uB9BF" enabled\="true" name\="html">resp.setCharacterEncoding("utf-8"); //\uD55C\uAE00 \uC751\uB2F5 \uC778\uCF54\uB529 \uC124\uC815&\#13;\r\nresp.setContentType("text/html; charset-utf-8"); //\uC751\uB2F5 \uCEE8\uD150\uCE20 \uC124\uC815&\#13;\r\nPrintWriter pw \= resp.getWriter(); //\uC694\uCCAD\uD55C \uD074\uB77C\uC774\uC5B8\uD2B8\uC5D0\uAC8C \uBB38\uC790\uC5F4\uC744 \uC751\uB2F5\uD560 \uAC1D\uCCB4&\#13;\r\n&\#13;\r\npw.println("&lt;doctype html&gt;");&\#13;\r\npw.println("&lt;html&gt;");&\#13;\r\npw.println("&lt;head&gt;");&\#13;\r\npw.println("&lt;meta charset\='utf-8'&gt;");&\#13;\r\npw.println("&lt;title&gt;\uC81C\uBAA9\uC785\uB2C8\uB2E4.&lt;/title&gt;");&\#13;\r\npw.println("&lt;/head&gt;");&\#13;\r\npw.println("&lt;body&gt;");&\#13;\r\npw.println("&lt;/body&gt;");&\#13;\r\npw.println("&lt;/html&gt;");&\#13;\r\npw.close();</template></templates>
 spelling_locale_initialized=true
 typefilter_migrated_2=true
 useAnnotationsPrefPage=true

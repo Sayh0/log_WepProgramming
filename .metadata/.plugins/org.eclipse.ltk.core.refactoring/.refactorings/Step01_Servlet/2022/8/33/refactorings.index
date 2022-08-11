@@ -1,0 +1,12 @@
+1660179489895	Delete element
+1660179616060	Delete element
+1660183971180	Rename resource 'Fortune.jsp'
+1660186232290	Move compilation unit
+1660187840583	Rename resource 'friendServlet.java'
+1660197043272	Move 'friend' to 'WEB-INF'
+1660197081616	Move 'list.jsp' to 'WEB-INF'
+1660197168652	Move 'list.jsp' to 'webapp'
+1660197181425	Rename resource 'list.jsp'
+1660197319522	Move 'friend' to 'webapp'
+1660197330252	Rename resource 'friendlist.jsp'
+1660197332665	Move 'list.jsp' to 'friend'
