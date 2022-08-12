@@ -23,11 +23,11 @@ public class FriendServlet extends HttpServlet{
       list.add("원숭이");
       list.add("주뎅이");
       list.add("덩어리");
-//      for()
+      // for()
       for(String variable:list) {
     	  System.out.println(variable);;
       	}
-      
+
       resp.setCharacterEncoding("utf-8");
       resp.setContentType("text/html; charset-utf-8");
       PrintWriter pw = resp.getWriter();
@@ -37,7 +37,7 @@ public class FriendServlet extends HttpServlet{
 	  pw.println("<head>");
 	  pw.println("<meta charset='utf-8'>");
 	  pw.println("<title>제목입니다.</title>");
-	  //bootSrtrap
+	  // bootSrtrap
 	  pw.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx\" crossorigin=\"anonymous\">");
 	  pw.println("</head>");
 	  pw.println("<body>");
