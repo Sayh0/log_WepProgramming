@@ -8,4 +8,3 @@ INDEX VERSION 1.4+C:\acorn202206\web_work\.metadata\.plugins\org.eclipse.wst.jsd
 3959122101.index
 1607912108.index
 2585537652.index
-1967802046.index

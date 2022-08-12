@@ -15,7 +15,6 @@
 	dto.setName(name);
 	dto.setAddr(address);
 	
-
 	MemberDao dao=MemberDao.getInstance();
 	boolean isSuccess=dao.insert(dto);
 	List<MemberDto> list=dao.getList();

@@ -44,29 +44,31 @@ public class MemberDao {
       try {
           conn=new DbcpBean().getConn();
           //실행 SQL문
-          String sql="UPDATE member"
-                  + " SET name=?, address=?"
-                  + " WHERE num=?";
-		pstmt=conn.prepareStatement(sql);
-        pstmt.setString(1, dto.getName());
-        pstmt.setString(2, dto.getAddr());
-        pstmt.setInt(3, dto.getNum());
-		
-        updatedRowCount=pstmt.executeUpdate();        
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-        try {
-            if(pstmt!=null)pstmt.close();
-            if(conn!=null)conn.close();
-         }catch(Exception e) {}
-	}
-      if(updatedRowCount > 0) {
-          //작업 성공의 의미이기 때문에 true 를 리턴하고 
-          return true;
-       }else {
-          //작업이 실패면 false 를 리턴한다. 
-          return false;
+          String sql="INSERT INTO member"
+                  + " (num, name, address)"
+                  + " VALUES(member_seq.NEXTVAL, ?, ?)";
+            //PreparedStatement 객체 얻어내기 
+            pstmt=conn.prepareStatement(sql);
+            //? 바인딩 할게 있으면 바인딩 한다.
+            pstmt.setString(1, dto.getName());
+            pstmt.setString(2, dto.getAddr());
+            //실행후 메소드가 리턴해주는 변화된 행의 갯수를 지역변수에 담는다. 
+            updatedRowCount=pstmt.executeUpdate();
+         }catch(Exception e) {
+            e.printStackTrace();
+         }finally {
+            try {
+               if(pstmt!=null)pstmt.close();
+               if(conn!=null)conn.close();
+            }catch(Exception e) {}
+         }
+         //만일 변화된 행의 갯수가 0보다 크면
+         if(updatedRowCount > 0) {
+            //작업 성공의 의미이기 때문에 true 를 리턴하고 
+            return true;
+         }else {
+            //작업이 실패면 false 를 리턴한다. 
+            return false;
        }      
    }
    
