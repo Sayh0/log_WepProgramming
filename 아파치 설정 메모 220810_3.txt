@@ -1,0 +1,20 @@
+404 not found - 요청한 파일 없음 이란 메세지다 멍청아.
+보통 주소 잘못 치면 뜨지. not found on this server.
+
+eclipse - help - market 가서
+'emit' search 하면 tab 해서 예약어 하는거 쓸수 있음 비주얼스튜디오코드에 있는 그거
+
+지금까지 간단하게 정리하면
+
+1. 서버에 Hello 프로젝트를 add 해서 서비스 되도록 한다.
+2. 서버를 start.
+3. 웹브라우저 실행
+4. 주소창에 http://localhost:8888/Hello/index.html을 입력해서
+	웹브라우저가 index.html 페이지를 로딩하도록 함
+
+어라 너무 번거로운데, 절차를 줄일 수 방법이 없을까? >> 물론 있다.
+일단 웹브라우저 실행은 이클립스로 가능하다.
+Windodw - Web Browser - 웹브라우저 골라서 시행
+
+그냥, 인덱스 html을 선택한 상태에서 런 버튼 누르면 끗.
+그럼 Hello add 하고 Finish 누르면 일사천리.

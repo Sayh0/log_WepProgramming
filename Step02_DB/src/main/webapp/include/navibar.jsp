@@ -15,10 +15,10 @@
 	navbar-expand-lg : width 992px 이상에서 네비요소 펼치기
  -->
 
-<nav class="navbar navbar-dark navbar-expand-sm" style="background-color: #712cf9;">
+<nav class="navbar navbar-dark navbar-expand-sm" style="background-color: #8FE3CF;">
   <div class="container">
     <a class="navbar-brand" href="${pageContext.request.contextPath }/">
-      <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      <img src="http://acornedu.co.kr/images/n_logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
       Acorn
     </a>
     <!-- 
