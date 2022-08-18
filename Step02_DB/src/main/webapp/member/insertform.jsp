@@ -47,6 +47,19 @@ body {
 
 <body>
 <div class="container">
+
+	<nav class="mt-2">
+	   <ol class="breadcrumb">
+	      <li class="breadcrumb-item">
+	         <a href="${pageContext.request.contextPath }/index.jsp">Home</a>
+	      </li>
+	      <li class="breadcrumb-item">
+	         <a href="${pageContext.request.contextPath }/member/list.jsp">회원목록</a>
+	      </li>
+	      <li class="breadcrumb-item active">회원 추가 페이지</li>
+	   </ol>
+	</nav>
+
 	<h1>회원 추가 폼 입니다.</h1>
 	<form action="insert.jsp" method="post">
 		<div class="mb-3">

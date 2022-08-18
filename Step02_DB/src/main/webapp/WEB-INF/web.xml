@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>Step02_DB</display-name>
+  <!-- 프로젝트의 최상위 루트 요청 경로 -->
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -10,7 +11,8 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 <!-- Servers 에 있는 기본 web.xml 세팅에 추가하거나 오버라이딩 할 것들을 여기에 기재. -->  
-  <!-- DB 연결을 위한 설정 -->
+
+<!-- DB 연동을 위한 설정 -->
    <resource-ref>
       <description>Oracle Datasource example</description>
       <res-ref-name>jdbc/myoracle</res-ref-name>

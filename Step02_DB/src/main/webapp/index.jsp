@@ -30,12 +30,17 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 	<%--
 		절대경로로 표시할 때 컨텍스트 경로가 필요하긴 하지만
 		컨텍스트 경로는 나중에 실제로 프로젝트가 끝나고 배포되는 시점에 변경되거나 제거될 예정이다.
-		따라서 코딩할 때 컨텍스트 경로를 "절대경로"로 코딩해 놓으면 나중에 제거하거나 변경할 때 힘들다.
+		따라서 코딩할 때 컨텍스트 경로를 절대경로로 하드코딩해 놓으면 나중에 제거하거나 변경할 때 힘들다.
 		해결책은 jsp페이지에서 context 경로가 필요하면 아래의 EL( ${...} ) 을 이용해서 출력하면 된다.
 	--%>
-	<!-- 
-	<p>컨텍스트 경로(프로젝트명) : <strong>${pageContext.request.contextPath }</strong></p>
-	 -->
+
+	<p>컨텍스트 경로(프로젝트명이라고 이해하자) : <strong>${pageContext.request.contextPath }</strong></p>
+	<!-- <p>컨텍스트 경로(프로젝트명이라고 이해하자) : <strong><%=request.getContextPath() %></strong></p> -->
+	<ul>
+		<li><a href="${ pageContext.request.contextPath }/test/form.jsp"></a>폼 바로가기</li>
+		<li><a href="${ pageContext.request.contextPath }/test/form.jsp">폼 테스트</a></li>
+	</ul>
+
 	<h4>웹페이지 구현 연습중</h4>
     <!-- 케러셀 하단의 표시바 -->
     <div class="carousel-indicators">
@@ -45,13 +50,13 @@ body { font-family: 'Noto Sans KR', sans-serif; }
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="${pageContext.request.contextPath }/images/bg.jpg" class="d-block w-80" alt="...">
+        <img src="${ pageContext.request.contextPath }/images/bg.jpg" class="d-block w-80" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="${pageContext.request.contextPath }/images/top02.jpg" class="d-block w-100" alt="...">
+        <img src="${ pageContext.request.contextPath }/images/top02.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="${pageContext.request.contextPath }/images/top03.jpg" class="d-block w-100" alt="...">
+        <img src="${ pageContext.request.contextPath }/images/top03.jpg" class="d-block w-100" alt="...">
       </div>
     </div>
     <!-- 케러셀 좌우 버튼 -->

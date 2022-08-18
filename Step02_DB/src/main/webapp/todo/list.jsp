@@ -62,7 +62,7 @@ body {
 
 <body>
 <jsp:include page="/include/navibar.jsp">
-	<jsp:param value="" name=""/>
+	<jsp:param value="todo" name="thisPage"/>
 </jsp:include>
 
    <div class="container">

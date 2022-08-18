@@ -49,6 +49,18 @@ body { font-family: 'Noto Sans KR', sans-serif; }
   </div>
 </nav>
 
+<nav class="mt-2">
+   <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+         <a href="${pageContext.request.contextPath }/index.jsp">Home</a>
+     </li>
+     <li class="breadcrumb-item">
+        <a href="${pageContext.request.contextPath }/member/list.jsp">회원목록</a>
+      </li>
+      <li class="breadcrumb-item active">회원 수정 페이지</li>
+   </ol>
+</nav>
+
 <div class="container">
 	<h1>할일 수정 양식</h1>
 	<form action="update.jsp" method="post">
