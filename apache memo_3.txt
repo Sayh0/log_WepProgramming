@@ -6,6 +6,9 @@ eclipse - help - market 가서
 
 지금까지 간단하게 정리하면
 
+건드려야 하는 것 : web-app 폴더에 web.xml
+server 8080 >> 8888
+
 1. 서버에 Hello 프로젝트를 add 해서 서비스 되도록 한다.
 2. 서버를 start.
 3. 웹브라우저 실행
