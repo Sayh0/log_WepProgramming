@@ -46,7 +46,7 @@ public class LoginFilter implements Filter{
 			//2. 만일 로그인을 했으면 관여하지 않고 요청의 흐름을 이어간다.
 			chain.doFilter(request, response);
 		}else {
-			/*
+			/*	
 			 *  로그인 페이지로 강제 리다일렉트 됬다면 
 			 *  로그인 성공후에 원래 가려던 목적지로 다시 보내야 하고
 			 *  GET 방식 전송 파라미터가 있다면 파라미터 정보도 같이 가지고 갈수 있도록 해야한다.
@@ -65,7 +65,8 @@ public class LoginFilter implements Filter{
 				encodedUrl=URLEncoder.encode(url+"?"+query);
 			}
 			//3. 로그인을 하지 않았으면 로그인 폼으로 이동할수 있도록 리다일렉트 응답을 준다.
-			String cPath=req.getContextPath();
+			// 이게 바로 "리다이렉트". 요청을 다시 하라고 강제.
+			String cPath=req.getContextPath(); //컨텍스트 경로
 			// ServletResponse type 을 HttpServletResponse type 으로 casting
 			HttpServletResponse res=(HttpServletResponse)response;
 			//리다일렉트 시킬때 원래 목적지 정보를 url 라는 파라미터 명으로 같이 보낸다.

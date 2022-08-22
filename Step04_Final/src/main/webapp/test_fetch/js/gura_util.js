@@ -72,7 +72,7 @@
 	}
 	
 	//함수의 인자로 요청 url 과 ajax 전송할 내용이 있는 input 요소의 참조값을 전달하면 ajax 전송해주는 함수
-	function ajaxInputPromise(url, input){
+	function ajaxInputPromise(url, input){ 
 		const type=input.getAttribute("type");
 		const name=input.getAttribute("name");
 		
@@ -90,6 +90,8 @@
 			
 			//전송할 쿼리 문자열 구성
 			const data=name+"="+encodeURIComponent(input.value);
+			//특수한 문자열을 인코딩을 해서 보내는 것. 직접 읽어낸 것은 인토딩을 해줘야한다.
+			//하나의 덩어리로 넘어갈 수 있도록.
 			promise=fetch(url,{
 				method:"POST",
 				headers:{"Content-Type":"application/x-www-form-urlencoded; charset=utf-8"},
@@ -114,3 +116,4 @@
 		//결과를 리턴해준다.
 		return queryString;
 	}
+	

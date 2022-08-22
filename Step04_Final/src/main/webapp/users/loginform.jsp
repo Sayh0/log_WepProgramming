@@ -3,6 +3,7 @@
 <%
 	//GET 방식 파라미터 url 이라는 이름으로 전달되는 값이 있는지 읽어와 본다
 	String url=request.getParameter("url");
+	//넘어오는 값이 있다면 로그인 후 그 페이지로 이동할 수 있게 한다.
 	//만일 넘어오는 값이 없다면
 	if(url==null){
 		//로그인 후에 인덱스 페이지로 갈수 있도록 한다. 
@@ -22,6 +23,8 @@
 	<div class="container">
 		<h1>로그인 폼</h1>
 		<form action="login.jsp" method="post">
+		<!-- 로그인 성공 후 어디로 갈지에 대한 정보를 url이라는 파라미터 명으로 같이 전송되도록 하는 것 -->
+		<!-- 목적지 정보도 같이 들고 다닌다고(hidden 이라 보이지는 않음) 보면 되겠다. -->
 			<input type="hidden" name="url" value="<%=url%>"/>
 			<div>
 				<label class="form-label" for="id">아이디</label>

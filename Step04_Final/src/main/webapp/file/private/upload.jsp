@@ -9,12 +9,14 @@
 	// /test/upload.jsp 파일을 참고해서 아래의 작업을 자알~~ 해 보세요 
 	
 	//1. 폼 전송되는 파일을 webapp/upload 폴더에 저장한다.
+	// 객체의 메소드를 이용해 경로를 얻어오는 것이야.
 	String realPath=application.getRealPath("/upload");
 	//해당 경로를 access 할수 있는 파일 객체 생성
 	File f=new File(realPath);
 	if(!f.exists()){ //만일  폴더가 존재 하지 않으면
 		f.mkdir(); //upload 폴더 만들기 
 	}
+	//MultipartRequest는 cos.jar 가 필요. 인자 5개가 필요.
 	MultipartRequest mr=new MultipartRequest(request,
 			realPath,     //업로드된 파일을 저장할 경로 
 			1024*1024*50, //최대 업로드 사이즈
