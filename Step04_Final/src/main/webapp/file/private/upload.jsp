@@ -9,7 +9,8 @@
 	// /test/upload.jsp 파일을 참고해서 아래의 작업을 자알~~ 해 보세요 
 	
 	//1. 폼 전송되는 파일을 webapp/upload 폴더에 저장한다.
-	// 객체의 메소드를 이용해 경로를 얻어오는 것이야.
+	// application 객체의 getRealPath 메소드를 이용해 실제 경로를 얻어오기.
+	// 하드코딩으로 때려박으면 나중에 수정할 때 힘드니까 메소드로 불러오기~
 	String realPath=application.getRealPath("/upload");
 	//해당 경로를 access 할수 있는 파일 객체 생성
 	File f=new File(realPath);
@@ -29,6 +30,7 @@
 	//4. 추가로 원본파일명, 저장된파일명, 파일사이즈도 얻어내서 FileDto 객체에 담아서 
 	String orgFileName=mr.getOriginalFileName("myFile");
 	String saveFileName=mr.getFilesystemName("myFile");
+	//long 타입인 것 주의. byte는 사이즈가 커서 log으로 저장.
 	long fileSize=mr.getFile("myFile").length();
 	//업로드된 파일의 정보를 FileDto 에 담고
 	FileDto dto=new FileDto();
@@ -56,7 +58,7 @@
 		</p>
 	<%}else{ %>
 		<p>
-			업로드 실패!
+			업로드 실패! <!-- ex)50mb 이상의 너무 큰 파일 업로드 시도하거나 할 경우 -->
 			<a href="upload_form.jsp">다시 시도</a>
 		</p>
 	<%} %>

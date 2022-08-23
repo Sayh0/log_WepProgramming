@@ -44,6 +44,7 @@
 		</a>
 		<form action="update.jsp" method="post">
 			<input type="hidden" name="profile" 
+			<%-- 3항연산자를 이용. --%>
 				value="<%=dto.getProfile()==null ? "empty" : dto.getProfile()%>"/>
 			<div>
 				<label for="id">아이디</label>

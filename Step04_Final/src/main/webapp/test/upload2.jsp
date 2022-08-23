@@ -3,9 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	//1. 파일을 저장할 서버에서의 실제 경로 구성하기
+	//폼 전송되는 파일을 webapp/upload 폴더에 저장
 	String realPath=application.getRealPath("/upload");
-	//2. 아래의 MultipartRequest 객체가 예외 없이 잘 생성되면 webapp/upload 폴더에 파일이 자동으로 저장된다.
+
 	MultipartRequest mr=new MultipartRequest(request,
 			realPath,     //업로드된 파일을 저장할 경로 
 			1024*1024*50, //최대 업로드 사이즈

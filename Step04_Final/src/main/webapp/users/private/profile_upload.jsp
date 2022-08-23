@@ -17,7 +17,10 @@
 	
 	//DB 에 저장할 이미지 경로 구성하기
 	String imagePath="/upload/"+saveFileName;
-%>     
+%>
+<%--
+	제이슨으로 응답을 받는다. 
+--%>     
 {"imagePath":"<%=imagePath %>"}
 
 

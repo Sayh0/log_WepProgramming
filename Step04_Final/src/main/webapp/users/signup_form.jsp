@@ -7,6 +7,13 @@
 <title>signup_form.jsp</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<!-- stylesheet -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
 </head>
 <body>
 	<div class="container">
@@ -14,13 +21,13 @@
 		<form action="signup.jsp" method="post" id="signupForm">
 			<div class="mb-3">
 				<label class="control-label" for="id">아이디</label>
-				<input class="form-control" type="text" name="id" id="id"/>
+				<input class="form-control is-valid is-invalid" type="text" name="id" id="id"/>
 				<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요</small>
 				<div class="invalid-feedback">사용할 수 없는 아이디 입니다.</div>
 			</div>
 			<div class="mb-3">
 				<label class="control-label" for="pwd">비밀번호</label>
-				<input class="form-control" type="password" name="pwd" id="pwd"/>
+				<input class="form-control is-valid is-invalid" type="password" name="pwd" id="pwd"/>
 				<small class="form-text text-muted">특수 문자를 하나 이상 조합하세요.</small>
 				<div class="invalid-feedback">비밀 번호를 확인 하세요</div>
 			</div>

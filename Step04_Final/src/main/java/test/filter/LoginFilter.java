@@ -69,7 +69,7 @@ public class LoginFilter implements Filter{
 			String cPath=req.getContextPath(); //컨텍스트 경로
 			// ServletResponse type 을 HttpServletResponse type 으로 casting
 			HttpServletResponse res=(HttpServletResponse)response;
-			//리다일렉트 시킬때 원래 목적지 정보를 url 라는 파라미터 명으로 같이 보낸다.
+			//리다이렉트 시킬때 원래 목적지 정보를 url 라는 파라미터 명으로 같이 보낸다.
 			res.sendRedirect(cPath+"/users/loginform.jsp?url="+encodedUrl);
 		}	
 	}

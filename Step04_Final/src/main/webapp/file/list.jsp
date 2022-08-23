@@ -98,7 +98,9 @@
 		
 		<nav>
 			<ul class="pagination">
-				
+				<%--
+					startPageNum이 1 이 아닌 경우에만 Prev 링크를 표시한다.
+				 --%>
 				<%if(startPageNum != 1){ %>
 					<li class="page-item">
 						<a class="page-link" href="list.jsp?pageNum=<%=startPageNum-1 %>">Prev</a>
@@ -116,7 +118,9 @@
 						</li>
 					<%} %>
 				<%} %>	
-				
+				<%--
+					마지막 페이지 번호가 전체 페이지의 개수보다 작을 때먄 Next 링크를 제공한다.
+				 --%>
 				<%if(endPageNum < totalPageCount){ %>
 					<li class="page-item">
 						<a class="page-link" href="list.jsp?pageNum=<%=endPageNum+1 %>">Next</a>
