@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="13">
-    <list key="modules" value0="Step02_DB::org.eclipse.jst.jee.server:Step02_DB::jst.web::3.1" value1="Step01_Servlet::org.eclipse.jst.jee.server:Step01_Servlet::jst.web::3.1" value2="Step03_Scope::org.eclipse.jst.jee.server:Step03_Scope::jst.web::3.1" value3="Step04_Final::org.eclipse.jst.jee.server:Step04_Final::jst.web::3.1"/>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="18">
+    <list key="modules" value0="Step02_DB::org.eclipse.jst.jee.server:Step02_DB::jst.web::3.1" value1="Step01_Servlet::org.eclipse.jst.jee.server:Step01_Servlet::jst.web::3.1" value2="Step03_Scope::org.eclipse.jst.jee.server:Step03_Scope::jst.web::3.1" value3="Step04-02_MyProject::org.eclipse.jst.jee.server:Step04-02_MyProject::jst.web::3.1" value4="MyProject::org.eclipse.jst.jee.server:MyProject::jst.web::3.1"/>
   </server>
 </servers>

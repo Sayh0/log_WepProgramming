@@ -23,6 +23,7 @@
 				<label class="control-label" for="id">아이디</label>
 				<input class="form-control is-valid is-invalid" type="text" name="id" id="id"/>
 				<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요</small>
+				<!-- invalid-feedback은 is-valid is-invalid 와 연동 -->
 				<div class="invalid-feedback">사용할 수 없는 아이디 입니다.</div>
 			</div>
 			<div class="mb-3">
@@ -37,7 +38,7 @@
 			</div>
 			<div class="mb-3">
 				<label class="control-label" for="email">이메일</label>
-				<input class="form-control" type="text" name="email" id="email"/>
+				<input class="form-control is-valid is-invalid" type="text" name="email" id="email"/>
 				<div class="invalid-feedback">이메일 형식에 맞게 입력하세요.</div>
 			</div>
 			<button class="btn btn-outline-primary" type="submit">가입</button>
@@ -50,16 +51,17 @@
 		let isPwdValid=false;
 		let isEmailValid=false;
 		
-		// id 를 입력 할때 마다 호출되는 함수 등록 
+		// id 를 한글자 한글자 입력 할때 마다 호출되는 함수 등록 
 		document.querySelector("#id").addEventListener("input", function(){
-			//input 요소의 참조값을 self 에 미리 담아 놓기 
+			//input 요소의 참조값을 self 에 미리 담아 놓기
+			//양쪽에서 다 쓸 수 있도록 미리 this로 담아놓는것.
 			const self=this;
 			//일단 2개의 클래스를 모두 제거 한다음 
 			self.classList.remove("is-valid");
 			self.classList.remove("is-invalid");
 			
 			//1. 현재 입력한 아이디를 읽어와서
-			const inputId=this.value;
+			const inputId=this.value; 
 			
 			//아이디를 검증할 정규표현식 객체
 			const reg=/^[a-z].{4,9}$/;
@@ -72,6 +74,8 @@
 			
 			//2. 서버에 보내서(페이지 전환 없이) 
 			//3. 사용 가능 여부를(이미 존재하는지 여부) 함수로 응답 받는다.
+			//fetch라는 함수 이용하면 페이지 전환 없이 가능(맞나? 구글에서 확인 필요)
+			//checkid.jsp 활용
 			fetch("${pageContext.request.contextPath }/users/checkid.jsp?inputId="+inputId)
 			.then(function(response){
 				//서버에서 응답하는 문자열의 형식이 json 형식이면 response.json();
@@ -100,7 +104,7 @@
 			const pwd=document.querySelector("#pwd").value;
 			const pwd2=document.querySelector("#pwd2").value;
 			//비밀번호를 검증할 정규 표현식
-			let reg=/[\W]/;
+			let reg=/[\W]/; //특믄 한글자 포함
 			//만일 비밀번호가 정규 표현식을 통과 하지 못한다면 
 			if(!reg.test(pwd)){		
 				document.querySelector("#pwd").classList.add("is-invalid");
@@ -126,13 +130,13 @@
 		});
 		
 		document.querySelector("#email").addEventListener("input", function(){
-			
+			//이메일은 딱히 fetch를 쓰지도 않고 다른 함수도 들어가지 않기 때문에 this 써도 무방.
 			this.classList.remove("is-valid");
 			this.classList.remove("is-invalid");
 			//입력한 이메일
 			const inputEmail=this.value;
 			//이메일을 검증할 정규 표현식
-			const reg=/@/;
+			const reg=/@/; //여기선 그냥 간단하게 골뱅이 있으면 통과하는 걸로 해놨음.
 			if(!reg.test(inputEmail)){
 				this.classList.add("is-invalid");
 				isEmailValid=false;

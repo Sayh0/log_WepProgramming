@@ -16,6 +16,7 @@
     <fullyQualifiedTypeName name="test.todo.dto.TodoDto"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="test.users.UsersDto"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="test.util.DbcpBean"/>
 </qualifiedTypeNameHistroy>

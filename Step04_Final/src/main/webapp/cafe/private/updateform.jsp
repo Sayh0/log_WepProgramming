@@ -29,6 +29,7 @@
 			<div class="mb-2">
 				<label class="form-label" for="content">내용</label>
 				<textarea class="form-control" id="content" name="content" rows="10"><%=dto.getContent() %></textarea>
+																			<!-- DB에서 읽어온 마크업이 여기에서 출력됨. -->
 			</div>
 			<button class="btn btn-primary btn-sm" type="submit" onclick="submitContents(this)">수정확인</button>
 			<button class="btn btn-danger btn-sm" type="reset">취소</button>
