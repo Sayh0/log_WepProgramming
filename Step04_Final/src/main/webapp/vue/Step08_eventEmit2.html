@@ -21,12 +21,13 @@
                     <li v-for="(item, index) in list">
                         {{item}}
                         <button v-on:click="deleteItem(index)">삭제</button>
+                        <!--index와 아래 i의 관계에 주목. -->
                     </li>
                 </ul>    
             `,
-            props:["list"],
+            props:["list"],//list는 item 과 연결,
             methods:{
-                deleteItem(i){
+                deleteItem(i){ //i 와 index는 연결되어 있다. 0,1,2 전달될 것.
                     this.$emit("delete", i);
                 }
             }
@@ -35,14 +36,17 @@
         let app=new Vue({
             el:"#app",
             data:{
-                members:['김구라','해골','원숭이']
+                members:['김구라','해골','원숭이'] //루트컴포넌트에서 멤버스를 자식 컴포넌트에 전달.
             },
             methods:{
-                deleteMember(index){
+                deleteMember(index){ //인덱스가 전달되면 부모컴퍼넌트는 배열에서 그 인덱스에 해당한 값을 삭제.
                     this.members.splice(index, 1);
                 }
             }
         });
+
+        //재활용성을 염두에 둔다면, 자식 컴포넌트는 수동적으로 만들어 두고(부모에게서 받아만 쓰는)
+        //부모에 여러가지 정보를 넣어놓아 부모 컴포넌트로 자유롭게 기능할 수 있도록 하는게 좋을듯.
     </script>
 </body>
 </html>

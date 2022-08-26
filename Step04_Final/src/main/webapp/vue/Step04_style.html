@@ -8,7 +8,7 @@
 </head>
 <body>
    <div class="container" id="app">
-        <h1>vue js 에서 css 조작하기</h1>
+        <h1>vue js 에서 css 조작하기</h1><!-- 오브젝트와 방의 이름을 이용해서 Css 조작 -->
         <p v-bind:style="{color:'red', fontSize:'20px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, aperiam minima autem quae commodi ab laborum ad. Accusamus nulla, error commodi sed dolor a! Numquam atque tempore porro quos illo?</p>
         <p v-bind:style="{color:fontColor, fontSize: fontSize+'px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat aliquam maxime tempora earum illo porro sapiente numquam soluta est temporibus, rem mollitia magni corrupti officiis ab similique fuga laudantium.</p>
         <p v-bind:style="pStyle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore unde voluptatem non ea ipsam animi quidem minus sunt aliquam quaerat optio officia eius veniam, temporibus cupiditate ab soluta! Labore, rem.</p>
@@ -26,6 +26,7 @@
            computed:{
                 pStyle:function(){
                     return {color:this.fontColor, fontSize: this.fontSize+'px'};
+                    //폰트 컬러와 폰트 사이즈 리턴.
                 }
            }
        });

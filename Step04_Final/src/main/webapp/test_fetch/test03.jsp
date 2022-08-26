@@ -19,7 +19,7 @@
 	<input type="text" name="name" placeholder="이름..." id="inputName"/>
 	<button id="sendBtn2">전송</button>
 	
-	<!-- 외부 javascript 로딩 -->
+	<!-- 외부 javascript 로딩(미리 준비된 라이브러리) -->
 	<script src="js/gura_util.js"></script>
 	<script>
 	

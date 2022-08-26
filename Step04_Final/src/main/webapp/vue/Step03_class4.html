@@ -29,9 +29,10 @@
             btn-primary <input type="checkbox" v-model="isPrimary">
         </label>
         <br>
-        <button v-bind:class="arr">버튼7</button>
+        <button v-bind:class="arr">버튼7</button> <!-- 여기 -->
         <input type="text" v-model="inputClass"/>
         <button v-on:click="add2">추가</button>
+        <!-- 원하는 클래스를 타이핑해서 추가할 수도 있다 -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>

@@ -6,21 +6,32 @@
 </head>
 <body>
 	<h1>vue js 사용하기</h1>
-	<div id="app">
+	<div id="app"> <!-- Vue를 위한 id값 부여하고 밑의 el에서 참조. -->
 		<p>오늘의 운세 : <strong>{{ fortune }}</strong></p>
 		<p>내 이름은 : <strong>{{ myName }}</strong></p>
-		<button v-on:click="clicked">눌러보셈</button>
-		<button v-on:click="clicked2">이름 바꾸기</button>
+		<button v-on:click="clicked">눌러보셈</button> <!-- vue로 이벤트 걸기. -->
+		<button v-on:click="clicked2">이름 바꾸기</button> <!-- vue로 이벤트 걸기. -->
 		<br />
-		<input type="text" v-model="msg"/>
+		
+		<!-- -----vue 로----- -->
+		<input type="text" v-model="msg"/><!-- input요소에 입력한 내용은 msg라는 이름으로 관리하겠다 라는 뜻. --> 
+		<!--
+			{{msg}}
+			msg라는 모델이 있으면 그것을 여기에 출력한다는 뜻. 
+			또한 msg로 출력하는 값은 맨 마지막으로 변경된 최근값. 
+			모델이 수정되면 모델이 반영된 곳은 바로바로 자동 업데이트가 된다.
+			직관적이다. 편함.
+		-->
 		<p>{{msg}}</p>
 		<ul>
-			<li v-for="item in nums">{{item}}</li>
+			<li v-for="item in nums">{{item}}</li><!-- vue로 이벤트 걸기. -->
 		</ul>
-		
+		<!-- -----vue 로----- -->ㄴ
 	</div>
+	
+	<!-- ------자바스크립트로------ -->
 	<div>
-		<input type="text" id="inputMsg"/>
+		<input type="text" id="inputMsg"/> 
 		<p id="result"></p>
 	</div>
 	<script>
@@ -28,19 +39,22 @@
 			document.querySelector("#result").innerText=this.value;
 		});
 	</script>
+	<!-- ------자바스크립트로------ -->
 	
+	<!-- Vue js 로딩 -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script>
-		// Vue 객체를 생성하면서 object 전달하기 
-		new Vue({
-			el:"#app",
-			data:{
+		// Vue 객체를 생성하면서 object 전달하기. new Vue({}); 
+		// 오브젝트의 구조로 되어 있음. { key : vlaue, key2 : value2...}
+		new Vue({ //방의 구조는 el, data, method. 이건 vue 포맷임.
+			el:"#app", // String 타입. 앞에 부여한 id값.
+			data:{ // Object 타입. '모델' 을 정의하는 곳. 초기값 지정.
 				fortune:"동쪽으로 가면 귀인을 만나요!",
 				myName:"김구라",
 				msg:"",
 				nums:[10, 20, 30]
 			},
-			methods:{
+			methods:{ //Object 타입. 특정시점에 실행할 함수를 모아둠. 
 				clicked:function(){
 					//alert("오잉?");
 					this.fortune="오후에도 vue 를 배우게 될거에요";

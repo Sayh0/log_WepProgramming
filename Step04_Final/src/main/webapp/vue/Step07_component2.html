@@ -10,9 +10,11 @@
     <h1>component 사용예제</h1>
     <div id="app">
         <h2>친구 목록 입니다.</h2>
+        <!-- 컴포넌트는 "friends-component", 모델은 "friends" -->
         <friends-component v-bind:friends="friends"></friends-component>
         
         <h2>동물 친구 목록 입니다.</h2>
+		<!-- 컴포넌트는 "friends-component", 모델은 "friends2" -->
         <friends-component v-bind:friends="friends2"></friends-component>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -24,6 +26,9 @@
                 friends2:["강아지","고양이","두더지"]
             },
             components:{
+            	//부모 컴포넌트가 가지고 있는 모델을 자식 컴포넌트에게 전달
+            	//컴포넌트와 모델 명은 임의로 아무렇게나 정해도 상관없다.
+            	//물론 저 위의 값하고는 일치해야 동작하겠지.
                 "friends-component":{
                     template:`
                         <ul>

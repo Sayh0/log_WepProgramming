@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/vue/Step10_Ajax2.html</title>
+<title>/vue/Step10_Ajax.html</title>
 </head>
 <body>
 	<h1>ajax 요청을 통해서 받아온 데이터 사용하기</h1>
 	<p> 페이지 전환없이 서버에 요청하는것을 ajax 라고 생각하면 된다.</p>
-	<!-- 클라이언트 사이드 랜더링 -->
 	<div id="app">
+		<button v-on:click="getList">글 목록 받아오기</button>
+		<br />
 		<table>
 			<thead>
 				<tr>
@@ -33,25 +34,21 @@
 			data:{
 				list:[]
 			},
-			created(){
-				// Vue 가 준비가 되었을때 (root component 가 준비 되었을때) 최조 한번 호출된다.
-				// 자바의 생성자 느낌이다. 최초 한번 호출됨.
-				console.log("created!");
-				//Vue 의 참조값을 self 에 담기 
-				const self=this;
-				
-				fetch("/Step04_Final/cafe/json_list.jsp")
-				.then(function(response){
-					return response.json();
-				})
-				.then(function(data){
-					console.log(data);
-					//서버로 부터 받은 데이터를 list 에 대입하기 
-					self.list=data;
-				});
-			},
 			methods:{
-				
+				getList(){
+					//Vue 의 참조값을 self 에 담기 
+					const self=this;
+					
+					fetch("/Step04_Final/cafe/json_list.jsp")
+					.then(function(response){
+						return response.json();
+					})
+					.then(function(data){
+						console.log(data);
+						//서버로 부터 받은 데이터를 list 에 대입하기 
+						self.list=data;
+					});
+				}
 			}
 		});
 	</script>

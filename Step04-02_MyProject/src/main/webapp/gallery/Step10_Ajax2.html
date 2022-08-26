@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/vue/Step10_Ajax2.html</title>
+
 </head>
 <body>
 	<h1>ajax 요청을 통해서 받아온 데이터 사용하기</h1>
@@ -40,7 +41,7 @@
 				//Vue 의 참조값을 self 에 담기 
 				const self=this;
 				
-				fetch("/Step04_Final/cafe/json_list.jsp")
+				fetch("/Step04-02_MyProject/gallery/json_list.jsp")
 				.then(function(response){
 					return response.json();
 				})

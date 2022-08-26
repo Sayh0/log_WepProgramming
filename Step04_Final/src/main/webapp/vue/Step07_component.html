@@ -17,10 +17,11 @@
 <body>
     <h1>component 정의하고 사용하기</h1>
     <div id="app">
-        <my-component></my-component>
+        <my-component></my-component> <!-- vue에서 컴포넌트는 재사용이 가능하다 -->
         <my-component></my-component>
         <my-component></my-component>
         <input type="text" v-model="msg"/>
+        <!-- 미리 만들어진 요소를 가져와 사용 -->
         <your-component v-bind:greet="'안녕하세요!'"></your-component>
         <your-component v-bind:greet="msg"></your-component>
     </div>
@@ -37,7 +38,7 @@
                 },
                 "your-component":{
                     template:"<div class='box'>{{greet}}</div>",
-                    props:["greet"]
+                    props:["greet"] //jsp에서 파라미터 전달하는 느낌으로 생각할 것.
                 }
             }
         });

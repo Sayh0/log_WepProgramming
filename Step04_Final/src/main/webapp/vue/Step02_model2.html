@@ -11,8 +11,10 @@
     <div id="app">
         <input type="text" v-model="msg">
         <br>
+        <!-- 체크박스에 모델을 지정하면 체크 여부가 boolean 값으로 관리가 된다. -->
         <input type="checkbox" v-model="isChecked">
         <br>
+        <!-- select 에 모델을 지정하면 선택한 option의 value가 모델의 값으로 관리가 된다. -->
         <select v-model="lunch">
             <option value="">선택</option>
             <option value="ramen">라면</option>
@@ -30,6 +32,10 @@
             v-model="isRun" 
             true-value="yes"
             false-value="no">
+        <!-- 
+        	 체크박스는 기본으론 boolean 값이지만
+             필요에 따라서 문자열로 관리하고 싶다면 그 값을 지정해줄 수 있다.
+        --> 
         <p>
             msg : <strong>{{msg}}</strong>
             <br>
@@ -46,10 +52,10 @@
     <script>
         let app=new Vue({
             el:"#app",
-            data:{
+            data:{ //초기값.
                 msg:"",
                 isChecked:true,
-                lunch:"",
+                lunch:"", 
                 comment:"",
                 isRun:"no"
             },

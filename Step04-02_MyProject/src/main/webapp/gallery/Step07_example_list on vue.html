@@ -13,27 +13,9 @@
         <div class="row">
             <figure-component 
                 v-for="(item, index) in imageList"
-                v-bind:imageinfo="item"              
+                v-bind:imageinfo="item"
                 v-bind:key="index"></figure-component>
-                <!-- 
-                	v-bind:key 
-                	없어도 에러는 아니지만 반복문 돌면서 여러 개의 요소를 출력할 때 
-                	해당 요소를 유일하게 식별할수 있는 key 값을 전달해 주는 것이 좋다고 나와 있음.
-                	ID 값을 부여한다 생각하면 됨. key값에는 겹치지 않는 값만 부여하면 됩니다.
-                	해당 item의 primary key 값이 있다면(DB에서 불러온 정보라면 보통 있음)
-                	primary key가 없다면 해당 item의 index값을 전달하면 된다. 
-                	쓰는 정확한 이유? 사실모름 ㅋㅋ 그냥 쓰셈 ㅋㅋ
-                -->
         </div>
-        <h1>bind:src 가 필요한 이유</h1>
-        <p>{{path}}</p>
-        <p v-text="path"></p>
-        <img v-bind:src="path"/>
-        <!-- 
-        	<img src="{{모델명}}"/> 형태로는 사용 불가. 사진 안 나옴.
-        	위와 같이  v-bind:src="모델명" 형식을 사용해야 한다.
-         -->
-        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -60,8 +42,7 @@
                         {src:"images/image2.png", caption:"어쩌구... 저쩌구..."},
                         {src:"images/image3.png", caption:"어쩌구... 저쩌구..."},
                         {src:"images/image4.png", caption:"어쩌구... 저쩌구..."}
-                    ],
-                    path:"C:/Users/acorn/Desktop"
+                    ]
                 };
             }
         });

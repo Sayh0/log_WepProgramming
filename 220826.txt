@@ -1,0 +1,19 @@
+vue
+
+클라이언트 웹브라우저에 외부 javascripit를 로딩시켜서
+
+로딩된 javascript를 활용한 어떠한 동작을 하는 방법
+
+1. JQuery ( 구형 웹브라우저에서 호환성을 고려하기 위해 많이 썼음)
+2. react js
+3. angular js
+4. vue js
+...
+
+javascript로 우리가 했던 것들
+- 화면의 동작(UI의 동작)
+- 이벤트
+- 입력받은 데이터 전송( ajax )
+- UI의 css 조작
+- 속성 조작, value 읽어오기, 넣어주기...
+

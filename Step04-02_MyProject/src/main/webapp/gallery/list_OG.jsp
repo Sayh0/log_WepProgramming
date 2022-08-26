@@ -3,8 +3,6 @@
 <%@page import="test.gallery.GalleryDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!-- 페이징 기능 자바 코드 -->
 <%
 	//한 페이지에 몇개씩 표시할 것인지
 	final int PAGE_ROW_COUNT=10;
@@ -40,10 +38,8 @@
 	if(endPageNum > totalPageCount){
 		endPageNum=totalPageCount; //보정해 준다. 
 	}
-%>
 
-<!-- 데이터 요청 자바 코드 -->
-<%
+
 	//1. 파일 목록을 얻어와서
 	//GalleryDto 객체를 생성해서 
 	GalleryDto dto=new GalleryDto();
@@ -56,18 +52,13 @@
 	//2. 응답하기
 	
 	//세션 영역의 id 를 읽어와 본다.
-	String id=(String)session.getAttribute("id");	
-	
+	String id=(String)session.getAttribute("id");						
 %>    
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gallery_by_vue</title>
+<meta charset="UTF-8">
+<title>/file/list.jsp</title>
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
@@ -95,103 +86,40 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 <body>
 <jsp:include page="/WEB-INF/include/navbar.jsp"></jsp:include>
 
-<!-- Vue test 1 start -->
-    <div class="container" id="app">
-        <div class="row">
-            <figure-component 
-                v-for="(item, index) in imageList"
-                v-bind:imageinfo="item"
-                v-bind:key="index"></figure-component>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-        Vue.component("figure-component",{
-            template:`
-            <div class="col">
-                <figure class="figure">
-                    <img v-bind:src="imageinfo.src" class="figure-img img-fluid rounded">
-                    <figcaption class="figure-caption">{{imageinfo.caption}}</figcaption>
-                </figure>
-            </div>
-            `,
-            props:["imageinfo"]
-        });
-
-        let app=new Vue({
-            el:"#app",
-            data(){
-                return {
-                    imageList:[
-                    	//로딩할 이미지의 경로, 캡션
-                        {src:"https://user-images.githubusercontent.com/96712990/186359419-77bd7730-60ab-4dc5-8030-09c110ff26a9.png"},
-                        {src:"https://user-images.githubusercontent.com/96712990/186359419-77bd7730-60ab-4dc5-8030-09c110ff26a9.png"},
-                        {src:"https://user-images.githubusercontent.com/96712990/186359419-77bd7730-60ab-4dc5-8030-09c110ff26a9.png"}
-                    ]
-                };
-            }
-        });
-    </script>
-<!-- Vue test 1 end -->
-
-
-
-
-<!-- Vue test 2 start-->
-<div id="app">
-	<table>
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>작성자</th>
-				<th>제목</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr v-for="tmp in list" v-bind:key="tmp.num">
-				<td>{{tmp.num}}</td>
-				<td>{{tmp.writer}}</td>
-				<td>{{tmp.title}}</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-	new Vue({
-		el:"#app",
-		data:{
-			list:[]
-		},
-		created(){
-			// Vue 가 준비가 되었을때 (root component 가 준비 되었을때) 최조 한번 호출된다.
-			// 자바의 생성자 느낌이다. 최초 한번 호출됨.
-			console.log("created!");
-			//Vue 의 참조값을 self 에 담기 
-			const self=this;
-			
-			fetch("/Step04-02_MyProject/gallery/json_list.jsp")
-			.then(function(response){
-				return response.json();
-			})
-			.then(function(data){
-				console.log(data);
-				//서버로 부터 받은 데이터를 list 에 대입하기 
-				self.list=data;
-			});
-		},
-		methods:{
-			
-		}
-	});
-</script>
-<!-- Vue test 2 end-->
-
-
-
-
-<!-- JSP code -->
-<!-- 
+	<div class="container">
+		<h1>자료실 목록 입니다.</h1>
+		<table class="table table-striped">
+			<thead class="table-dark">
+				<tr>
+					<th>번호</th>
+					<th>작성자</th>
+					<th>제목</th>
+					<th>파일명</th>
+					<th>크기</th>
+					<th>등록일</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+			<tbody>
+			<%for(GalleryDto tmp:list){ %>
+				<tr>
+					<td>
+					<%=tmp.getNum() %>
+					</td>
+					<td><%=tmp.getWriter() %></td>
+					<td><%=tmp.getTitle()%></td>
+					<td><a href="download.jsp?num=<%=tmp.getNum()%>"><%=tmp.getOrgFileName() %></a></td>
+					<td><%=tmp.getFileSize() %></td>
+					<td><%=tmp.getRegdate() %></td>
+					<td>
+						<%if(tmp.getWriter().equals(id)){ %>
+							<a href="delete.jsp?num=<%=tmp.getNum()%>">삭제</a>
+						<%} %>
+					</td>
+				</tr>
+			<%} %>
+			</tbody>
+		</table>
 		<div class="container">
 			<table class="grid">
 				<tbody>
@@ -220,10 +148,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 			</tbody>
 			</table>
 		</div>
--->
-<!-- JSP code -->
-
-
+		
 		<!-- paging -->
 		<nav>
 			<ul class="pagination">
@@ -259,7 +184,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 			</ul>
 		</nav>
 		<!-- paging -->
-		<a href="${pageContext.request.contextPath }/gallery/private/upload_form.jsp">업로드</a>
+		<a href="${pageContext.request.contextPath }/file/private/upload_form.jsp">업로드</a>
 		
 	</div>
 </body>

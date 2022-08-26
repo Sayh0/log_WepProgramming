@@ -13,6 +13,10 @@
             props 이름이 camel case 로 작성되어 있으면 kebab case 로 props 를 
             전달해야 한다.
         -->
+        <!-- 
+        	camelCase는 kebab case로 바꿔서 작성하지 않으면 동작을 안 한다...
+        	fortuneToday > fortune-today 
+        -->
         <fortune-component v-bind:fortune-today="fortune"></fortune-component>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -25,7 +29,7 @@
                     <p>{{fortuneToday}}</p>    
                 </div>  
             `,
-            props:["fortuneToday"]
+            props:["fortuneToday"]//property의 이름이 길어서 camelCase.
         });
 
         let app=new Vue({

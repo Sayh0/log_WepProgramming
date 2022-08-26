@@ -79,6 +79,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 			if(isDelete){
 				location.href="delete.jsp";
 			}
+			
 		}
 	</script>
 </body>

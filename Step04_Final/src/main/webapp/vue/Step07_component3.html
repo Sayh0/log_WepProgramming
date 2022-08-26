@@ -23,18 +23,23 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         /*
+        	재사용 가능한 컴포넌트를 아예 따로 작성해버리는 경우
             재사용 가능한 컴포넌트를 전역으로 정의하기 
             Vue.component("컴포넌트 이름", {컴포넌트 데이터});
         */
-        Vue.component("my-component", {
+        
+       	//자식 컴포넌트. (부모 컴포넌트와 달리 모양은 이걸로 고정해야함!)
+        Vue.component("my-component", { 
+        	// Vue.component("my-component",{...}) >> 오브젝트다.
             template:"<div>{{msg}}</div>",
             data(){
+            // {data:function(){}} == {data(){}}. 같은 의미.
                 return {
                     msg:"div 입니다."
                 };
             }
         });
-
+		//부모 컴포넌트
         let app=new Vue({
             el:"#app",
             data:{
@@ -50,6 +55,8 @@
             }
         });
         let app3=new Vue({
+        	//2번의 축약형.
+        	//부모 컴포넌트가 가지고 있는 greet을 자식에게 부여.
             el:"#app3",
             data(){
                 return {

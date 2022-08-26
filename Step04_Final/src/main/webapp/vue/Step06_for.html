@@ -11,14 +11,17 @@
     <div id="app">
         <h2>목록출력</h2>
         <ul>
+        <!-- 배열의 아이템 개수만큼 li가 만들어짐 -->
             <li v-for="item in [10,20,30]">{{item}}</li>
         </ul>
         <h2>목록출력2</h2>
         <ul>
+        <!-- nums는 아래 있는 배열 -->
             <li v-for="item in nums">{{item}}</li>
         </ul>
         <h2>목록출력3</h2>
         <ul>
+        <!-- 인덱스와 아이디를 같이 쓸 때. -->
             <li v-for="(item, index) in nums">{{item}} {{index}}</li>
         </ul>
         <h2>목록출력4</h2>

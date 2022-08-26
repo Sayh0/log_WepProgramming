@@ -16,13 +16,14 @@
         Vue.component("my-component", {
             template:`
                 <div>
-                    <button v-on:click="callMom">엄마!</button>    
+                    <button v-on:click="callMom">엄마!<!-- 1. click --></button>    
                 </div>
             `,
             methods:{
-                callMom(){
+                callMom(){ //2. call
                     // this.$emit("이벤트명", 전달할 data)
-                    this.$emit("mom", "배고파");
+                    // 이벤트를 발생시키는 함수. 이벤트명("mom")은 v-on: >>eventname<< 하고만 일치하면 아무거나 상관없음   
+                    this.$emit("mom", "배고파"); //3. event
                 }
             }
         });
@@ -30,11 +31,13 @@
         let app=new Vue({
             el:"#app",
             methods:{
-                feed(data){
+                feed(data){// 4.
                     alert(data);
-                }
+                } // 5.
             }
         });
+        // 결론 : 데이터만 전달해주면 컴포넌트가 알아서 착착 진행된다.
+        // 참 편리하겠지?
     </script>
 </body>
 </html>
