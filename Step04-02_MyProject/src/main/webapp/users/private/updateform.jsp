@@ -1,4 +1,3 @@
-
 <%@page import="test.users.UsersDao"%>
 <%@page import="test.users.UsersDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -56,7 +55,7 @@
 				<input type="text" id="email" name="email" value="<%=dto.getEmail()%>"/>
 			</div>
 			<button type="submit">수정확인</button>
-			<button type="reset">취소</button>
+			<button type="button" onclick="location.href='${pageContext.request.contextPath}/users/private/info.jsp'">취소</button>
 		</form>
 		
 		<form id="imageForm" action="profile_upload.jsp" method="post" enctype="multipart/form-data">
@@ -65,6 +64,8 @@
 			<button type="submit">업로드</button>
 		</form>
 	</div>
+	
+	
 	<!-- gura_util.js 로딩 -->
 	<script src="${pageContext.request.contextPath }/js/gura_util.js"></script>
 	<script>
@@ -94,6 +95,8 @@
 			});
 		});
 	</script>
+	
+	
 </body>
 </html>
 

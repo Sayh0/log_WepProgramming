@@ -1,4 +1,3 @@
-
 <%@page import="test.gallery.GalleryDto"%>
 <%@page import="test.gallery.GalleryDao"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
@@ -44,6 +43,7 @@
 	boolean isSuccess=GalleryDao.getInstance().insert(dto);
 	//6. 응답한다. 
 	
+
 %>    
 <!DOCTYPE html>
 <html>
@@ -53,9 +53,10 @@
 </head>
 <body>
 	<%if(isSuccess){ %>
+		
 		<p>
 			<%=writer %> 님이 업로드한 <%=orgFileName %> 파일을 저장했습니다.
-			<a href="${pageContext.request.contextPath }/file/list.jsp">목록보기</a>
+			<a href="${pageContext.request.contextPath }/gallery/list.jsp">목록보기</a>
 		</p>
 	<%}else{ %>
 		<p>

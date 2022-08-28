@@ -25,12 +25,12 @@
 	<%if(isSuccess){ %>
 		<script>
 			alert("수정 했습니다.");
-			location.href="${pageContext.request.contextPath }/cafe/detail.jsp?num=<%=num %>";
+			location.href="${pageContext.request.contextPath }/board/detail.jsp?num=<%=num %>";
 		</script>
 	<%}else{ %>
 		<script>
 			alert("수정이 실패 되었습니다.");
-			location.href="${pageContext.request.contextPath }/cafe/private/updateform.jsp?num=<%=num %>";
+			location.href="${pageContext.request.contextPath }/board/private/updateform.jsp?num=<%=num %>";
 		</script>
 	<%} %>
 </body>

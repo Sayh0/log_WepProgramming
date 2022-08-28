@@ -34,12 +34,12 @@
 	<h1>알림</h1>
 	<%if(isValid){ %>
 		<p>
-			<strong><%=id %></strong> 님 로그인 되었습니다. (여기 나중에 Modal로 수정하세요!)
+			<strong><%=id %></strong> 님 로그인 되었습니다.
 			<a href="<%=url%>">확인</a>
 		</p>
 	<%}else{ %>
 		<p>
-			아이디 혹은 비밀번호가 틀려요
+			아이디 혹은 비밀번호가 다릅니다.
 			<a href="${pageContext.request.contextPath }/users/loginform.jsp?url=<%=encodedUrl%>">다시시도</a>
 		</p>
 	<%} %>

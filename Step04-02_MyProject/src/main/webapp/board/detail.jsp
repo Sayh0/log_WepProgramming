@@ -63,6 +63,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 		</tr>
 	</table>
 	<!-- comment -->
+	<!--  
 	<div class="container">
 		<div class="form-group">
 			<form method="post" encType = "multipart/form-data" >
@@ -79,6 +80,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 			</form>
 		</div>
 	</div>
+	-->
 	<!-- comment -->
 	
 	

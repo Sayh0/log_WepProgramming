@@ -35,7 +35,6 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/include/navbar.jsp"></jsp:include>
 	<div class="container">
 		<h1>가입 정보 입니다.</h1>
 		<table>

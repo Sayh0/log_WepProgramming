@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>signup_form.jsp</title>
 <!-- bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <!-- bootstrap -->
 <!-- font -->
 <style>
@@ -15,135 +15,182 @@
 body { font-family: 'Noto Sans KR', sans-serif; }
 </style>
 <!-- font -->
-<style>
-   body {
-        height: 100vh;
-        width: 100vw;
-        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) ), url('https://user-images.githubusercontent.com/96712990/186555113-09907d4d-10b4-4831-adcd-da4e44667935.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
 
-   	}
+<style>
+.container {
+background-color : #FFFFFF;
+margin-top: 100px;
+position: relative;/* 부모요소에 relative */
+width: 500px;height: 550px;border: 1px solid #dcdcdc}
+.signupForm {
+position: absolute;
+left: 50%;top: 50%;
+transform: translate(-50%,-50%) /* 자식요소에 translate 값 주기*/
+}
+h1 { margin-top: 25px; }
+form { margin-top: 25px;}
+body {
+     height: 100vh;
+     width: 100vw;
+     background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) ), url('https://user-images.githubusercontent.com/96712990/186555113-09907d4d-10b4-4831-adcd-da4e44667935.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+
+	}
 </style>
+
 </head>
 <body>
+
 <jsp:include page="/WEB-INF/include/navbar.jsp"></jsp:include>
+
+<!-- Vue 활용 -->
 	<div class="container">
-		<div>계정 만들기</div>
-		<form action="signup.jsp" method="post" id="signupForm">
-		<div class="mb-3">
-			<label class="control-label" for="id">아이디</label>
-			<input class="form-control is-valid is-invalid" type="text" name="id" id="id"/>
-			<small class="form-text text-muted">영문 대소문자와 숫자로 6-10자 이내로 만들어주세요. </small>
-			<!-- invalid-feedback은 is-valid is-invalid 와 연동 -->
-			<div class="invalid-feedback">사용할 수 없는 아이디 입니다.</div>
-		</div>
-		<div class="mb-3">
-			<label class="control-label" for="pwd">비밀번호</label>
-			<input class="form-control is-valid is-invalid" type="password" name="pwd" id="pwd"/>
-			<small class="form-text text-muted">영문자로 시작하는 6~10자 영문자 또는 숫자로 만들어 주세요.</small>
-			<div class="invalid-feedback">비밀 번호를 확인 하세요</div>
-		</div>
-		<div class="mb-3">
-			<label class="control-label" for="pwd2">비밀번호 확인</label>
-			<input class="form-control" type="password" name="pwd2" id="pwd2"/>
-		</div>
-		<div class="mb-3">
-			<label class="control-label" for="email">이메일</label>
-			<input class="form-control is-valid is-invalid" type="text" name="email" id="email"/>
-			<div class="invalid-feedback">이메일 형식에 맞게 입력하세요.</div>
-		</div>
-		<button class="btn btn-outline-primary" type="submit">가입</button>
-		</form>	
+		<h1>WELCOME!</h1>
+		<form v-on:submit="onSubmit" action="signup.jsp" method="post" id="signupForm">
+			<div class="mb-3">
+				<label class="control-label" for="id">아이디</label>
+				<input 	v-on:input="onIdInput" 
+						v-model="id"  
+						v-bind:class="{'is-valid':isIdValid , 'is-invalid':!isIdValid && isIdDirty}"
+						class="form-control" type="text" name="id" id="id"/>
+				<!-- is-invalid':!isIdValid && isIdDirty : 아이디가 유효하지 않고, 한번이라고 Dirty 되었을 경우! -->
+				<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요</small>
+				<div class="invalid-feedback">사용할 수 없는 아이디 입니다.</div>
+			</div>
+			<div class="mb-3">
+				<label class="control-label" for="pwd">비밀번호</label>
+				<input 	v-on:input="checkPwd"
+						v-model="pwd"
+						v-bind:class="{'is-valid':isPwdValid, 'is-invalid':!isPwdValid && isPwdDirty}"
+						class="form-control" type="password" name="pwd" id="pwd"/>
+				<small class="form-text text-muted">특수 문자를 하나 이상 조합하세요.</small>
+				<div class="invalid-feedback">비밀 번호를 확인 하세요</div>
+			</div>
+			<div class="mb-3">
+				<label class="control-label" for="pwd2">비밀번호 확인</label>
+				<input 	v-on:input="checkPwd"
+						v-model="pwd2" 
+						class="form-control" type="password" name="pwd2" id="pwd2"/>
+			</div>
+			<div class="mb-3">
+				<label class="control-label" for="email">이메일</label>
+				<input 	v-on:input="onEmailInput" 
+						v-model="email"
+						v-bind:class="{'is-valid':isEmailValid, 'is-invalid':!isEmailValid && isEmailDirty}"
+						class="form-control" type="text" name="email" id="email"/>
+				<div class="invalid-feedback">이메일 형식에 맞게 입력하세요.</div>
+			</div>
+			<button v-bind:disabled="!isFormValid" class="btn btn-primary" type="submit" >가입</button>
+		</form>		
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script>
-	
-	let isIdValid=false;
-	let isPwdValid=false;
-	let isEmailValid=false;
-	//CHECK ID
-	document.querySelector("#id").addEventListener("input", function(){
-		const self=this;
-		self.classList.remove("is-valid");
-		self.classList.remove("is-invalid");
-		
-		const inputId=this.value;
-		const reg=/^[A-za-z]+[A-za-z0-9]{5,9}$/; //영문자로 시작하는 6~10자 영문자 또는 숫자
-		if(!reg.test(inputId)){ //정규식 통과여부 확인
-			self.classList.add("is-invalid");
-			isIdValid=false;
-			return;
-		}
-		
-		fetch("${pageContext.request.contextPath }/users/checkid.jsp?inputId="+inputId)
-		.then(function(response){
-			return response.json();
-		})
-		.then(function(data){
-			console.log(data);
-			if(data.isExist){ //기존 데이터와 중복여부 확인
-				self.classList.add("is-invalid");
-				isIdValid=false;
-			}else{
-				self.classList.add("is-valid");
-				isIdValid=true;
+		new Vue({
+			el:"#signupForm", // vue 로 제어할 요소의 선택자 
+			data:{
+				isIdValid:false, // 아이디유효성여부
+				isPwdValid:false,
+				isEmailValid:false,
+				id:"", // 입력된 아이디
+				pwd:"",
+				pwd2:"",
+				email:"",
+				isIdDirty:false, 
+				/*
+					초기 폼은 공백값이니 당연히 유효하지 않다. 
+					그렇다고 서버 띄우자마자 시뻘건 유효하지 않음 메세지를 띄울 순 없으니 
+					처음 받자마자는 하얀색으로 둔다. dirty는 처음 입력했는지 여부를 판단한다.				
+				*/
+				isPwdDirty:false,
+				isEmailDirty:false
+			},
+			computed:{
+				//폼 전체의 유효성 여부를 계산해서 리턴하는 함수(모델처럼 사용하면 된다)
+				isFormValid(){
+					let result=this.isIdValid && this.isPwdValid && this.isEmailValid;
+					return result;
+				}
+			},
+			methods:{
+				onSubmit(e){
+					//폼 전체의 유효성 여부
+					//let isFormValid = this.isIdValid && this.isPwdValid && this.isEmailValid;
+					if(!this.isFormValid){
+						//폼 제출 막기 
+						e.preventDefault();
+					}
+				},
+				onIdInput(){
+					//한번이라도 입력하면 isIdDirty 값을 true 로 바꿔준다. 
+					this.isIdDirty=true;
+					//아이디를 검증할 정규표현식 객체
+					const reg=/^[a-z].{4,9}$/;
+					//만일 입력한 아이디가 정규표현식을 통과 하지 못한다면 빨간색으로 표시하고 함수를 여기서 바로 종료 시키기 
+					if(!reg.test(this.id)){
+						this.isIdValid=false;
+						return;
+					}
+					// Vue 객체의 참조값을 me 에 담아 놓기 
+					const me=this;
+					
+					//2. 서버에 보내서(페이지 전환 없이) 
+					//3. 사용 가능 여부를(이미 존재하는지 여부) 함수로 응답 받는다.
+					fetch("${pageContext.request.contextPath }/users/checkid.jsp?inputId="+this.id)
+					.then(function(response){
+						//서버에서 응답하는 문자열의 형식이 json 형식이면 response.json();
+						//그 이외의 형식이면 response.text(); 를 호출해서 리턴해 준다. 
+						return response.json();
+					})
+					.then(function(data){
+						//서버에서 출력한 json 문자열이 object 로 변환되어서 함수에 전달된다. 
+						console.log(data);
+						//data 는 {isExist:true} or {isExist:false} 형식의 object 이다. 
+						if(data.isExist){//이미 존재하면 사용할수 없는 아이디 
+							me.isIdValid=false;
+						}else{
+							me.isIdValid=true;
+						}
+					});					
+				},
+				checkPwd(){
+					this.isPwdDirty=true;
+					//비밀번호를 검증할 정규 표현식
+					let reg=/[\W]/;
+					//만일 비밀번호가 정규 표현식을 통과 하지 못한다면 
+					if(!reg.test(this.pwd)){	
+						this.isPwdValid=false;
+						return; //함수를 여기서 끝내라 
+					}
+					if(this.pwd != this.pwd2){//만일 비밀번호 입력란과 확인란이 다르다면	
+						this.isPwdValid=false;
+					}else{
+						this.isPwdValid=true;
+					}					
+				},
+				onEmailInput(){
+					this.isEmailDirty=true;
+					//이메일을 검증할 정규 표현식
+					const reg=/@/;
+					if(!reg.test(this.email)){
+						this.isEmailValid=false;
+					}else{
+						this.isEmailValid=true;
+					}					
+				}
 			}
 		});
-	});
-	
-	//CHECK PWD
-	function checkPwd(){
-		document.querySelector("#pwd").classList.remove("is-valid");
-		document.querySelector("#pwd").classList.remove("is-invalid");
-		
-		const pwd=document.querySelector("#pwd").value;
-		const pwd2=document.querySelector("#pwd2").value;
-		let reg=/[0-9]/; //특문 한글자 포함
-		if(!reg.test(pwd)){		
-			document.querySelector("#pwd").classList.add("is-invalid");
-			isPwdValid=false;
-			return;
-		}
-		
-		if(pwd != pwd2){
-			document.querySelector("#pwd").classList.add("is-invalid");
-			isPwdValid=false;
-		}else{
-			document.querySelector("#pwd").classList.add("is-valid");
-			isPwdValid=true;
-		}
-	}
-	
-	document.querySelector("#pwd").addEventListener("input", function(){
-		checkPwd();
-	});
-	document.querySelector("#pwd2").addEventListener("input", function(){
-		checkPwd();
-	});
-	
-	//CHECK EMAIL
-	document.querySelector("#email").addEventListener("input", function(){
-		this.classList.remove("is-valid");
-		this.classList.remove("is-invalid");
-		const inputEmail=this.value;
-		const reg=/@/; //여기선 그냥 간단하게 골뱅이 있으면 통과하는 걸로 해놨음.
-		if(!reg.test(inputEmail)){
-			this.classList.add("is-invalid");
-			isEmailValid=false;
-		}else{
-			this.classList.add("is-valid");
-			isEmailValid=true;
-		}
-	});
-	
-	//SUBMIT
-	document.querySelector("#signupForm").addEventListener("submit", function(event){
-		let isFormValid = isIdValid && isPwdValid && isEmailValid;
-		if(!isFormValid){
-			event.preventDefault();
-		}
-	});
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

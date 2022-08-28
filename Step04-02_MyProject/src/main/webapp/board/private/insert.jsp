@@ -27,7 +27,7 @@
 	<%if(isSuccess){ %>
 		<script>
 			alert("새글이 추가 되었습니다.");
-			location.href="${pageContext.request.contextPath }/cafe/list.jsp";
+			location.href="${pageContext.request.contextPath }/board/list.jsp";
 		</script>
 	<%}else{ %>
 		<script>

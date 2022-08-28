@@ -9,5 +9,5 @@
 	
 	//글 목록 보기로 리다일렉트 이동 ( 특정 경로로 요청을 다시하라고 클라이언트에게 강요하기)
 	String cPath=request.getContextPath();
-	response.sendRedirect(cPath+"/cafe/list.jsp");
+	response.sendRedirect(cPath+"/board/list.jsp");
 %>    
